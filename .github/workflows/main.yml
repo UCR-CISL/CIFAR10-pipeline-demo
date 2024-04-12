@@ -65,4 +65,19 @@ jobs:
 
       - name: Verify deployment
         run: echo "Container deployed successfully to GitHub Packages"
+    
+  notify-update:
+      needs: package-and-deploy
+      runs-on: self-hosted
+      permissions:
+        contents: read
+        packages: write
+        
+      steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Invoke webhook
+        run: curl -X GET ${{ secrets.WEBHOOK_URL }}
+
       

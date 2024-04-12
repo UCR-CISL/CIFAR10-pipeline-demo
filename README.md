@@ -1,3 +1,6 @@
+Test Workflow
+
+
 In the repo you can find multiple files to get the energy score for in and out distribution for CIFAR-10(in-distribution) and SVHN(out-distribution). In the wrn.py file a WideResNet model is implemented as a network to capture the relevant features from the CIFAR-10 and SVHN dataset. Then the dataloader.py contains only loading both the datasets and preprocessing them for the network. In train.py and test.py we train the model on the CIFAR-10 dataset which gives around 91% accuracy and is tested on SVHN dataset which gives 10% accuracy(expected). In the main.py file the energy score is calculated and the graph is plotted
 
 The energy score for the data is calculated from the input of the features as logits to the energy function and prints the energy score based on the number of samples

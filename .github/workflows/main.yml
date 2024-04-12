@@ -61,7 +61,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.REGISTRY }}/${{ github.REPO_NAME }}:latest
+          tags: ${{ env.REGISTRY }}/${{ env.REPO_NAME }}:latest
 
       - name: Verify deployment
         run: echo "Container deployed successfully to GitHub Packages"

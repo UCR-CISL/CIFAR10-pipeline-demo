@@ -46,7 +46,7 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     # Load pre-trained model
-    checkpoint_path = "/home/rakshithmahishi/Documents/Energy_OOD/cifar10_wrn_s1_energy_ft_epoch_9.pt"
+    checkpoint_path = "cifar10_wrn_s1_energy_ft_epoch_9.pt"
     model = WideResNet(depth=40, widen_factor=2, dropRate=0.3, num_classes=10)
     model = load_checkpoint(model, checkpoint_path)
     model.to(device)

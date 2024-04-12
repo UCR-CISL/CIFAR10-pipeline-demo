@@ -32,6 +32,7 @@ jobs:
         run: python main.py
 
   package-and-deploy:
+      needs: train-and-test-model
       runs-on: self-hosted
       permissions:
         contents: read
@@ -56,7 +57,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          tags: ${{ env.REGISTRY }}/${{ github.repository }}.tolower():latest
 
       - name: Verify deployment
         run: echo "Container deployed successfully to GitHub Packages"

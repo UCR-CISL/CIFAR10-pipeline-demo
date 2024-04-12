@@ -51,13 +51,17 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Convert repository name to lowercase
+        id: repo_name
+        run: echo "REPO_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
           context: .
           push: true
-          tags: ${{ env.REGISTRY }}/${{ github.repository }}.tolower():latest
+          tags: ${{ env.REGISTRY }}/${{ github.repository }}:latest
 
       - name: Verify deployment
         run: echo "Container deployed successfully to GitHub Packages"

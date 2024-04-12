@@ -30,6 +30,7 @@ def plot_energy_scores_kde(energy_scores_cifar10, energy_scores_svhn, fpr95):
     plt.ylabel('Density')
     plt.legend()
     plt.title(f'Energy Score Distribution (FPR95: {fpr95:.2f})')
+    plt.savefig('/app/plot.png', dpi=300)
     plt.show()
 
 def evaluate_model(model, data_loader, device):

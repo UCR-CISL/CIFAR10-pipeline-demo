@@ -31,7 +31,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Load pre-trained model
 model = WideResNet(depth=40, widen_factor=2, dropRate=0.3, num_classes=10).to(device)
-model = load_checkpoint(model, "cifar10_wrn_s1_energy_ft_epoch_9.pt")
+model = load_checkpoint(model, "checkpoint_epoch_199.pt")
 
 # Load CIFAR-10 and SVHN test data
 cifar10_test_loader = get_cifar10_loader(batch_size=128, train=False)

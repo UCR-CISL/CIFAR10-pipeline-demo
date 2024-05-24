@@ -13,3 +13,5 @@ There are 2 functions show_camera_image() and show_range_image() which display t
 which display the range images of range, intensity, and elongation. Also, print the frame details. These can be used as features for the energy function as logits to print and in and out
 distribution. 
 
+
+main_build.py -> only during build
